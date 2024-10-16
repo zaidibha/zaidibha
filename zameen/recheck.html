@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate Search</title>
+    <style>
+        /* Your existing CSS styles */
+        .results-section {
+            margin-top: 30px;
+            padding: 20px;
+            border-top: 1px solid #dee2e6;
+            text-align: left;
+        }
+
+        .project-result {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-result h3 {
+            margin: 0 0 10px;
+            font-size: 20px;
+            color: #343a40;
+        }
+
+        .project-result p {
+            margin: 5px 0;
+            color: #6c757d;
+        }
+
+        .search-widget {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .search-widget h2 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .search-widget p {
+            font-size: 16px;
+            color: #6c757d;
+            margin-bottom: 20px;
+        }
+
+        .filter-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 15px;
+        }
+
+        .filter-item {
+            flex: 1 1 22%;
+            text-align: left;
+        }
+
+        .filter-item label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: #495057;
+        }
+
+        .filter-item input[type="text"],
+        .filter-item select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .filter-link {
+            display: block;
+            padding: 8px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            font-size: 14px;
+            color: #495057;
+            text-decoration: none;
+            background-color: #f8f9fa;
+        }
+
+        .filter-link:hover {
+            background-color: #e9ecef;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .range-display {
+            display: block;
+            margin-top: 5px;
+            font-size: 14px;
+            color: #6c757d;
+        }
+
+        .actions {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #search-btn {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #search-btn:hover {
+            background-color: #218838;
+        }
+
+        .toggle-filters {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .toggle-filters:hover {
+            text-decoration: underline;
+        }
+
+        .marketed-by {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .marketed-by label {
+            font-size: 14px;
+            color: #6c757d;
+            margin-right: 10px;
+        }
+
+        .marketed-by img {
+            width: 100px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="search-widget">
+        <h2>Find New Projects in Pakistan</h2>
+        <p>Find exciting new real estate projects and investment opportunities</p>
+        
+        <div class="filter-section">
+            <div class="filter-item">
+                <label for="city">City</label>
+                <select id="city">
+                    <option value="All">All</option>
+                    <option value="Karachi">Karachi</option>
+                    <option value="Lahore">Lahore</option>
+                    <option value="Islamabad">Islamabad</option>
+                    <!-- Add more cities as needed -->
+                </select>
+            </div>
+            <div class="filter-item">
+                <label for="property-type">Property Type</label>
+                <select id="property-type">
+                    <option value="All">All</option>
+                    <option value="Apartment">Apartment</option>
+                    <option value="Villa">Villa</option>
+                    <option value="Commercial">Commercial</option>
+                    <!-- Add more property types as needed -->
+                </select>
+            </div>
+            <div class="filter-item">
+                <label for="budget-range">Budget Range</label>
+                <input type="range" id="budget-range" min="0" max="1000000" value="0">
+                <span class="range-display" id="budget-display">0 - Any</span>
+            </div>
+            <div class="filter-item">
+                <label for="area-range">Area Range</label>
+                <input type="range" id="area-range" min="0" max="5000" value="0">
+                <span class="range-display" id="area-display">0 - Any</span>
+            </div>
+            <div class="filter-item">
+                <label for="project-title">Project Title</label>
+                <input type="text" id="project-title" placeholder="Select Projects">
+            </div>
+            <div class="filter-item">
+                <label for="developer-title">Developer Title</label>
+                <input type="text" id="developer-title" placeholder="Select Developers">
+            </div>
+        </div>
+        
+        <div class="actions">
+            <button id="search-btn">Search</button>
+            <a href="#" class="toggle-filters">See Less</a>
+        </div>
+        
+        <div class="marketed-by">
+            <label>Marketed by</label>
+            <a href="https://www.zameen.com" target="_blank">
+                <img src="zameen-logo.png" alt="Zameen.com">
+            </a>
+        </div>
+    </div>
+    
+    <div class="results-section" id="results-section">
+        <!-- Search results will be displayed here -->
+    </div>
+
+    <script>
+        document.getElementById('budget-range').addEventListener('input', function() {
+            const value = this.value;
+            const display = value > 0 ? value : "Any";
+            document.getElementById('budget-display').textContent = `0 - ${display}`;
+        });
+
+        document.getElementById('area-range').addEventListener('input', function() {
+            const value = this.value;
+            const display = value > 0 ? value : "Any";
+            document.getElementById('area-display').textContent = `0 - ${display}`;
+        });
+
+        document.getElementById('search-btn').addEventListener('click', function() {
+            // Get filter values
+            const city = document.getElementById('city').value;
+            const propertyType = document.getElementById('property-type').value;
+            const budgetRange = document.getElementById('budget-range').value;
+            const areaRange = document.getElementById('area-range').value;
+            const projectTitle = document.getElementById('project-title').value.trim();
+            const developerTitle = document.getElementById('developer-title').value.trim();
+            
+            // Static data for demonstration purposes
+            const projects = [
+                { title: "prime tover", developer: "mm estate", city: "Karachi", type: "Apartment", budget: 500000, area: 1000 },
+                { title: "Project B", developer: "Developer 2", city: "Lahore", type: "Villa", budget: 800000, area: 3000 },
+                { title: "Project C", developer: "Developer 3", city: "Islamabad", type: "Commercial", budget: 1000000, area: 5000 },
+                // Add more dummy projects as needed
+            ];
+
+            // Filter projects based on search criteria
+            const filteredProjects = projects.filter(project => {
+                return (city === "All" || project.city === city) &&
+                       (propertyType === "All" || project.type === propertyType) &&
+                       (budgetRange === "0" || project.budget <= budgetRange) &&
+                       (areaRange === "0" || project.area <= areaRange) &&
+                       (projectTitle === "" || project.title.toLowerCase().includes(projectTitle.toLowerCase())) &&
+                       (developerTitle === "" || project.developer.toLowerCase().includes(developerTitle.toLowerCase()));
+            });
+
+            // Display results
+            const resultsSection = document.getElementById('results-section');
+            resultsSection.innerHTML = ''; // Clear previous results
+            
+            if (filteredProjects.length > 0) {
+                filteredProjects.forEach(project => {
+                    const projectElement = document.createElement('div');
+                    projectElement.className = 'project-result';
+                    projectElement.innerHTML = `
+                        <h3>${project.title}</h3>
+                        <p>Developer: ${project.developer}</p>
+                        <p>City: ${project.city}</p>
+                        <p>Type: ${project.type}</p>
+                        <p>Budget: ${project.budget}</p>
+                        <p>Area: ${project.area} sqft</p>
+                    `;
+                    resultsSection.appendChild(projectElement);
+                });
+            } else {
+                resultsSection.innerHTML = '<p>No projects found based on the selected filters.</p>';
+            }
+        });
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zameen.com Clone</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+      <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<style>
+    /* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ body {
+    font-family: Arial, sans-serif; 
+    background-color: #f5f5f5;
+}
+#nav {
+    background-color: #28a745;
+    padding: 10px 0;
+    color: #fff;
+    height: 45px;
+    font-size: 15px;
+    font-weight: 600;
+    color: white;
+    margin: 0px;
+}
+
+
+header .logo img {
+    height: 37px;
+    margin-left: 36px;
+    width: 150px;
+    margin-top: -7px;
+
+}
+.imgs{
+    padding-top: 7px;
+    background-color: rgb(248, 248, 248);
+    color: #555;
+    cursor: pointer;
+    margin-top: -45px;
+    font-size: 16px;
+    gap: 30px;
+    height: 41px;
+}
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+
+
+
+
+/* Header Section */
+.header {
+    background-image: url('Render_6963514afa.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 100px 20px;
+    text-align: center;
+    color: rgb(8, 8, 8);
+    margin-top: -140px;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.header p {
+    font-size: 1.2rem;
+}
+
+/* Search Bar Section */
+.search-bar {
+    background-color: white;
+    padding: 20px;
+    margin: -50px auto 20px;
+    width: 80%;
+    max-width: 1200px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.search-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.form-group {
+    flex: 1 1 22%;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input, .form-group select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    /* width: 240px; */
+}
+
+.search-button {
+    background-color: #28a745;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 25px;
+}
+
+.search-button:hover {
+    background-color: #218838;
+}
+
+.marketed-by {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.zameen-logo {
+    background-color: #e6f2e6;
+    padding: 10px 20px;
+    border-radius: 4px;
+    color: #28a745;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* Categories Section */
+.categories {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.categories h2 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+}
+
+.category-grid {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.category {
+    background-color: white;
+    padding: 20px;
+    width: 180px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.category span {
+    font-size: 1.5rem;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.category p {
+    font-size: 1rem;
+    color: #777;
+}
+
+
+.currency-table {
+            width: 300px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background-color: white;
+            position: relative;
+            padding: 10px;
+            margin-top: -25px;
+        }
+        .currency-header h4 {
+            font-size: 14px;
+            text-align: center;
+            margin: 0;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-bottom: 1px solid #ddd;
+        }
+        .currency-content {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+        }
+        .column {
+            width: 45%;
+        }
+        .column label {
+            display: block;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+        .column input {
+            width: 100%;
+            padding: 5px;
+            font-size: 14px;
+            text-align: center;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+
+        .currency-dropdown {
+            position: relative;
+        }
+        .dropdown-btn {
+            width: 100%;
+            background-color: #007bff;
+            color: white;
+            padding: 5px;
+            font-size: 14px;
+            text-align: center;
+            border: none;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+        .currency-dropdown .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            border: 1px solid #ddd;
+            max-height: 200px;
+            overflow-y: auto;
+            z-index: 1;
+            width: 100%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .currency-dropdown .dropdown-content button {
+            width: 100%;
+            padding: 8px;
+            font-size: 14px;
+            text-align: left;
+            background-color: white;
+            border: none;
+            border-bottom: 1px solid #ddd;
+            cursor: pointer;
+        }
+        .currency-dropdown .dropdown-content button:hover {
+            background-color: #f1f1f1;
+        }
+        .currency-dropdown .dropdown-btn:hover + .dropdown-content,
+        .currency-dropdown .dropdown-content:hover {
+            display: block;
+        }
+        .close-btn {
+            background-color: #6c757d;
+            color: white;
+            padding: 5px 10px;
+            font-size: 14px;
+            border: none;
+            cursor: pointer;
+            border-radius: 3px;
+            width: 100%;
+            margin-top: 10px;
+        
+        }
+
+
+
+        .project-slider {
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        .project-slider h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .swiper-container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .swiper-slide {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .project-card {
+            position: relative;
+            width: 300px;
+            height: 350px; 
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #fff; 
+            margin-left: -140px;
+            justify-content: none;
+        }
+
+        .trending-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #28a745;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            font-weight: bold;
+            z-index: 2;
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 200px; 
+            object-fit: cover; 
+        }
+
+        .project-details {
+            padding: 15px;
+            background-color: white;
+            height: 150px; /* Ensure that the details area is also consistent */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            
+        }
+
+        .project-details h3 {
+            margin: 0 0 10px;
+            font-size: 16px;
+        }
+
+        .project-details p {
+            margin: 0;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .price {
+            margin-top: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #28a745;
+        }
+
+        /* Smaller arrows */
+        /* .swiper-button-next,
+        .swiper-button-prev {
+            color: #28a745;
+            width: 20px;
+            height: 20px;
+        } */
+</style>
+<body>
+    <nav id="nav" class="navbar navbar-expand-sm bg-success navbar-light">
+        <div id="nav" class= "container-fluid">
+         &emsp; <a class="navbar-brand" href="#"><li><i style="color: white;" class="fas fa-home"></i><a href="#"></a></li></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div  class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a style="color: white;" class="nav-link" href="#">PROPERTIES</a>
+              </li>
+              <li class="nav-item">
+                <a style="color: white;" class="nav-link" href="#">PLOTFINDER</a>
+              </li>
+              <li class="nav-item">
+                <a style="color: white;" class="nav-link" href="#">AREAGUIDES</a>
+              </li> 
+              <li class="nav-item">
+                <a style="color: white;" class="nav-link" href="#">BLOGS</a>
+              </li>
+              <li class="nav-item">
+                <a style="color: white;" class="nav-link" href="#">MAPS</a>
+              </li> 
+              <li class="nav-item dropdown">
+                <a style="color: white;" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">TOOLS</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Home Loan Calculator</a></li>
+                  <li><a class="dropdown-item" href="#">Area Unit Converter</a></li>
+                  <li><a class="dropdown-item" href="#">Land Record Page</a></li>
+                  <li><a class="dropdown-item" href="#">Constructaion Cost</a></li>
+                  <li><a class="dropdown-item" href="#">Calculator</a></li>
+                  </ul>
+                </li>
+             
+            <li class="nav-item dropdown">
+                <a style="color: white;" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">MORE</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Forum</a></li>
+                  <li><a class="dropdown-item" href="#">Index</a></li>
+                  <li><a class="dropdown-item" href="#">Trends</a></li>
+                </ul>
+                </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    <header>
+        <div class="container">
+            
+            <nav>
+                <ul>
+                    
+                    <i style="position: relative;left: 1255px;top: -35px;font-size: 22px;color: white;" class="fa-solid fa-gear"></i>
+                    <i style="position: relative;left: 1265px;top: -35px;font-size: 22px;color: white;" class="fa-regular fa-user"></i>
+                    <i style="position: relative; color: black;font-size: 9px; left: 758px;top: -28px;" class="fas fa-search"></i> <input style="position: relative;left: 730px; top: -35px; font-size: 12px; padding: 5px; width: 120px; height: 25px; color: white; border-radius: 5px; border: 1px solid white; outline: none; background-color: #28a745;border: 1px solid white;" type="text" placeholder="Property ID"></ul>
+                    <button  style=" position: relative;left: 987px; top: -123px; width: 120px; height: 26px; background-color: white;border-radius: 5px;border: none;font-size: 12px;"><i style="font-size: 17px;" class="fa-sharp fa-light fa-plus"></i> Add properties</button>
+                   <img style="position: relative; width: 27px; left: 1070px;top: -122px;" src="C:\Users\za263\Desktop\Task\zameen\flage.png" alt="">
+                   <img style="position: relative; width: 28px; left: 990px;top: -125px;" src="C:\Users\za263\Desktop\Task\zameen\iconLangUR_noinline.b1c8d0143beb32e86c2abb0007029fd3 (1).svg" alt="">
+                </ul>
+            </nav>
+            </div>
+            <nav>
+                <div class="logo">
+                   <div style="position: relative;top: -129px;" class="imgs">
+                    <ul>
+                        <a href="#"><img   src="C:\Users\za263\Desktop\Task\zameen\logo.png" alt="Logo"></a>
+                       <br>&emsp;&emsp;&emsp;&emsp; <li>BUY ></li>
+                        <li>HOME</li>
+                        <li>PLOTS</li>
+                        <li>COMMERCIAL   &emsp; |</li>
+                        <li>RENT &emsp; |</li>
+                        <li>AGENTS &emsp; |</li>
+                        <li>NEWPROJECTS</li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Header Section -->
+    <header class="header">
+        <h1>Find New Projects in Pakistan</h1>
+        <p>Find exciting new real estate projects and investment opportunities</p>
+    </header>
+
+    <!-- Search Bar Section -->
+    <section class="search-bar">
+        <div class="search-container">
+            <div class="form-group">
+                <label for="city">City</label>
+                <select id="city">
+                    <option value="lahore">Lahore</option>
+                    <option value="karachi">Karachi</option>
+                    <option value="islamabad">Islamabad</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="property-type">Property Type</label>
+                <select id="property-type">
+                    <option value="all">All</option>
+                    <option value="flats">Flats</option>
+                    <option value="plots">Plots</option>
+                    <option value="houses">Houses</option>
+                    <option value="shops">Shops</option>
+                    <option value="commercial">Commercial</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="budget-range">Budget Range</label>
+                <input type="text" onclick="contant()" id="min" placeholder="0 - Any"><input id="max" style="width: 205px;position: relative;top: -45px;left: 70px;" type="text">
+                <div class="currency-table" id="budget" style="display: none;">
+                    <div class="currency-header">
+                        <h4>Bedget Range</h4>
+                    </div>
+                    <div class="currency-content" >
+                        <div class="column">
+                            <label for="min">MIN:</label>
+                            <input type="text" id="min" value="0" readonly>
+
+                            <div class="currency-dropdown dropdown">
+                                <button class="dropdown-btn" id="min-btn">0</button>
+                                <div class="dropdown-content">
+                                    <button onclick="selectValue('min', '500,000')">500,000</button>
+                                    <button onclick="selectValue('min', '1,000,000')">1,000,000</button>
+                                    <button onclick="selectValue('min', '2,000,000')">2,000,000</button>
+                                    <button onclick="selectValue('min', '3,500,000')">3,500,000</button>
+                                    <button onclick="selectValue('min', '5,000,000')">5,000,000</button>
+                                    <!-- Add more options as needed -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <label for="max">MAX:</label>
+                            <input type="text" id="max" value="Any" readonly>
+                            <div class="currency-dropdown dropdown">
+                                <button class="dropdown-btn" id="max-btn">Any</button>
+                                <div class="dropdown-content">
+                                    <button onclick="selectValue('max', '500,000')">500,000</button>
+                                    <button onclick="selectValue('max', '1,000,000')">1,000,000</button>
+                                    <button onclick="selectValue('max', '2,000,000')">2,000,000</button>
+                                    <button onclick="selectValue('max', '3,500,000')">3,500,000</button>
+                                    <button onclick="selectValue('max', '5,000,000')">5,000,000</button>
+                                    <!-- Add more options as needed -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="area-range">Area Range</label>
+                <input type="text" onclick="contanter()" id="area-min-value" placeholder="0 - Any"><input id="area-max-value" style="width: 240px;position: relative;top: -45px;left: 70px;" type="text">
+                <div class="currency-table" id="budget1" style="display: none;">
+                    <div class="currency-header">
+                        <h4>Area Range</h4>
+                    </div>
+                    <div class="currency-content">
+                        <div class="column">
+                            <label for="area-min">MIN:</label>
+                            <input type="text" id="area-min-value" value="0" readonly>
+                            <div class="currency-dropdown dropdown">
+                                <button class="dropdown-btn" id="area-min-btn">0</button>
+                                <div class="dropdown-content">
+                                    <button onclick="selectValue('area-min-value', '2 Marla')">2 Marla </button>
+                                    <button onclick="selectValue('area-min-value', '3 Marla')">3 Marla</button>
+                                    <button onclick="selectValue('area-min-value', '5 Marla')">5 Marla</button>
+                                    <button onclick="selectValue('area-min-value', '10 Marla')">10 Marla</button>
+                                    <button onclick="selectValue('area-min-value', '20 Marla')">20 Marla</button>
+                                    <!-- Add more options as needed -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <label for="area-max">MAX:</label>
+                            <input type="text" id="area-max-value" value="Any" readonly>
+                            <div class="currency-dropdown dropdown">
+                                <button class="dropdown-btn" id="area-max-btn">Any</button>
+                                <div class="dropdown-content">
+                                    <button onclick="selectValue('area-max-value', '2 Marla')">2 Marla</button>
+                                    <button onclick="selectValue('area-max-value', '3 Marla')">3 Marla</button>
+                                    <button onclick="selectValue('area-max-value', '5 Marla')">5 Marla</button>
+                                    <button onclick="selectValue('area-max-value', '10 Marla')">10 Marla</button>
+                                    <button onclick="selectValue('area-max-value', '20 Marla')">20 Marla</button>
+                                    <!-- Add more options as needed -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="project-title">Project Title</label>
+                <input style="color: #000;" type="text" id="area-max-w" placeholder="Select Projects">
+                <input style="color: #000;" type="text" id="" placeholder="Select Projects">
+                <div class="column">
+                            <div class="currency-dropdown dropdown">
+            <button style="top: -30px;width: 200px;position: relative;color: #000;background-color: white;"  class="dropdown-btn" id="area-max-btn">Project Title</button>
+                        <div class="dropdown-content" style="margin-top: -40px;width: 207px;">
+                            <button onclick="selectValue('area-max-w', 'Zee Ayenue')">Zee Ayenue</button>
+                            <button onclick="selectValue('area-max-w', 'City Star Residencia')">City Star Residencia</button>
+                            <button onclick="selectValue('area-max-w', 'Moon Housing')">Moon Housing</button>
+                            <button onclick="selectValue('area-max-w', 'Prime Towr')">Prime Towr</button>
+                            <button onclick="selectValue('area-max-w', 'Canadian City')">Canadian City</button>
+                            <!-- Add more options as needed -->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label for="developer-title">Developer Title</label>
+                <input type="text" id="area-max-a" placeholder="Select Developers">
+                <input type="text" id="developer-title" placeholder="Select Developers">
+                <div class="column">
+            <div class="currency-dropdown dropdown">
+     <button style="top: -30px;width: 200px;position: relative;color: #000;background-color: white;"   class="dropdown-btn" id="area-max-btn">Develop Title</button>
+                <div class="dropdown-content" style="margin-top: -40px;width: 207px;">
+                    <button onclick="selectValue('area-max-a', 'Capital Associates North Karachi')">Capital Associates North Karachi</button>
+                    <button onclick="selectValue('area-max-a', 'Expert Estate')">Expert Estate</button>
+                    <button onclick="selectValue('area-max-a', 'Rescome Real Estate Managment')">Rescome Real Estate Managment</button>
+                    <button onclick="selectValue('area-max-a', 'JSK International')">JSK International</button>
+                    <button onclick="selectValue('area-max-a', 'MM Estate')">MM Estate</button>
+                    <!-- Add more options as needed -->
+                </div>
+            </div>
+        </div>
+
+            </div>
+            <button type="submit" class="search-button">Search</button>
+        </div>
+        <div class="marketed-by">
+            <p>Marketed by</p>
+            <a href="#" class="zameen-logo">zameen.com</a>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories">
+        <h2>Browse Projects by Category</h2>
+        <div class="category-grid">
+            <div class="category">
+                <span>🏢 Flats</span>
+                <p>503 Projects</p>
+            </div>
+            <div class="category">
+                <span>🏞 Plots</span>
+                <p>441 Projects</p>
+            </div>
+            <div class="category">
+                <span>🏬 Shops</span>
+                <p>346 Projects</p>
+            </div>
+            <div class="category">
+                <span>🏠 Houses</span>
+                <p>175 Projects</p>
+            </div>
+            <div class="category">
+                <span>🏢 Commercial</span>
+                <p>156 Projects</p>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="project-slider">
+        <h2>Discover New Projects</h2>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <!-- Slide 1 -->
+                <div class="swiper-slide">
+                    <div class="project-card">
+                        <div class="trending-badge">TRENDING</div>
+                        <img src="Render_6963514afa.jpg" alt="Moon Housing">
+                        <div class="project-details">
+                            <h3>Moon Housing</h3>
+                            <p>Jhang Road, Faisalabad</p>
+                            <p>Houses, Plots, Plots</p>
+                            <div class="price">PKR 14.5 Lakh</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="swiper-slide">
+                    <div class="project-card">
+                        <div class="trending-badge">TRENDING</div>
+                        <img src="JBR_residecncy_Elevation_for_Zameen_com_7935cfab20.jpg" alt="JBR Residency">
+                        <div class="project-details">
+                            <h3>JBR Residency</h3>
+                            <p>Bahria Town - Precinct 8, Karachi</p>
+                            <p>Shops, Flats</p>
+                            <div class="price">PKR 55.08 Lakh</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 3 -->
+                <div class="swiper-slide">
+                    <div class="project-card">
+                        <div class="trending-badge">TRENDING</div>
+                        <img src="IMG_7953_13df43dd89.jpg" alt="Paari Palace">
+                        <div class="project-details">
+                            <h3>Paari Palace</h3>
+                            <p>Malir Cantonment, Karachi</p>
+                            <p>Flats, Penthouse</p>
+                            <div class="price">PKR 84.75 Lakh</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 4 -->
+                <div class="swiper-slide">
+                    <div class="project-card">
+                        <div class="trending-badge">TRENDING</div>
+                        <img src="Cover_9c7508b1a8.jpg" alt="Park Diamond Vista">
+                        <div class="project-details">
+                            <h3>Park Diamond Vista</h3>
+                            <p>Gulberg 3, Lahore</p>
+                            <p>Shops, Flats</p>
+                            <div class="price">PKR 2.08 Crore</div>
+                        </div>
+                    </div>
+                </div>
+				<!-- <div class="swiper-slide">
+                    <div class="project-card">
+                        <div class="trending-badge">TRENDING</div>
+                        <img src="6_738ebb34c7.jpg" alt="Park Diamond Vista">
+                        <div class="project-details">
+                            <h3>Park Diamond Vista</h3>
+                            <p>Gulberg 3, Lahore</p>
+                            <p>Shops, Flats</p>
+                            <div class="price">PKR 2.08 Crore</div>
+                        </div>
+                    </div>
+                </div> 
+				 <div class="swiper-slide">
+                    <div class="project-card">
+                        <div class="trending-badge">TRENDING</div>
+                        <img src="Cover_b4b71635f7.jpg" alt="Park Diamond Vista">
+                        <div class="project-details">
+                            <h3>Park Diamond Vista</h3>
+                            <p>Gulberg 3, Lahore</p>
+                            <p>Shops, Flats</p>
+                            <div class="price">PKR 2.08 Crore</div>
+                        </div>
+                    </div>
+                </div>
+				<div class="swiper-slide">
+                    <div class="project-card">
+                        <div class="trending-badge">TRENDING</div>
+                        <img src="Pictures_2_fc6824759e.png" alt="Park Diamond Vista">
+                        <div class="project-details">
+                            <h3>Park Diamond Vista</h3>
+                            <p>Gulberg 3, Lahore</p>
+                            <p>Shops, Flats</p>
+                            <div class="price">PKR 2.08 Crore</div>
+                        </div>
+                    </div>
+                </div>
+				<div class="swiper-slide">
+                    <div class="project-card">
+                        <div class="trending-badge">TRENDING</div>
+                        <img src="IMG_7953_13df43dd89.jpg" alt="Park Diamond Vista">
+                        <div class="project-details">
+                            <h3>Park Diamond Vista</h3>
+                            <p>Gulberg 3, Lahore</p>
+                            <p>Shops, Flats</p>
+                            <div class="price">PKR 2.08 Crore</div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+            <!-- Add Arrows -->
+            <!-- <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div> -->
+        </div>
+   </section>
+</body>
+</html>
+<script src="C:/Users/za263/Desktop/Task/zameen/jquery.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+
+    $(document).ready(function() {
+    $("#budget").hide();  
+    $("#pro").click(function() {
+        $("#budget").toggle();  
+    });
+});
+</script>
+
+<script>
+    function selectValue(field, value) {
+            document.getElementById(field).value = value;
+            document.getElementById(field + '-btn').textContent = value;
+        }
+        function selectValue(field, value) {
+    document.getElementById(field).value = value;
+    document.getElementById(field + '-btn').textContent = value;
+}
+function selectValue(field, value) {
+    document.getElementById(field).value = value;
+    document.getElementById(field + '-btn').textContent = value;
+}
+function contant() {
+    var content = document.getElementById('budget');
+    if (content.style.display === 'none' || content.style.display === '') {
+        content.style.display = 'block';  // Show the element
+    } else {
+        content.style.display = 'none';   // Hide the element
+    }
+}
+function contanter() {
+    var content = document.getElementById('budget1');
+    if (content.style.display === 'none' || content.style.display === '') {
+        content.style.display = 'block';  // Show the element
+    } else {
+        content.style.display = 'none';   // Hide the element
+    }
+}
+
+
+const swiper = new Swiper('.swiper-container', {
+            slidesPerView: 3,
+            spaceBetween: 20,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            breakpoints: {
+                1024: {
+                    slidesPerView: 3,
+                },
+                768: {
+                    slidesPerView: 2,
+                },
+                640: {
+                    slidesPerView: 1,
+                },
+            },
+        });
+</script>

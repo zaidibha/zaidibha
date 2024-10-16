@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Societies in Pakistan</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    /* General Styles */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
+
+    /* Container */
+    .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    /* Header Section */
+    .header {
+        background: linear-gradient(to right, #e0f7fa, #c8e6c9);
+        padding: 20px 0;
+        text-align: center;
+    }
+
+    .header h1 {
+        margin: 0;
+        font-size: 2.5rem;
+        color: #333;
+    }
+
+    .header p {
+        margin: 10px 0;
+        font-size: 1.2rem;
+        color: #666;
+    }
+
+    .search-bar {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .dropdown, .search-button, #society {
+        padding: 10px;
+        font-size: 1rem;
+        margin-right: 10px;
+    }
+
+    .search-button {
+        background-color: #4caf50;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+    }
+
+    .search-button:hover {
+        background-color: #45a049;
+    }
+
+    /* Societies Cards Section */
+    .societies {
+        background-color: #fff;
+        padding: 40px 0;
+        height: 450px;
+    }
+
+    .society-card {
+        width: 100%;
+        margin: 10px;
+        display: block;
+        text-align: center;
+        
+    }
+
+    .society-card img {
+        height: 300px;
+        border-radius: 10px;
+    }
+
+    .card-content {
+        margin-top: 10px;
+    }
+
+    .card-content h3 {
+        font-size: 1.5rem;
+        color: #333;
+    }
+
+    .card-content p {
+        color: #888;
+    }
+
+    .card-content a {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #4caf50;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        margin-top: 10px;
+    }
+
+    .card-content a:hover {
+        background-color: #45a049;
+    }
+
+    /* Slider Container */
+    .slider-container {
+        width: 100%;
+        max-width: 80%;
+        margin: 20px auto;
+        overflow: hidden;
+        position: relative;
+        border-radius: 10px;
+    }
+
+    /* Slider */
+    .slider {
+        display: flex;
+        transition: transform 2s ease-in-out; /* Slow motion effect */
+    }
+
+    /* Individual Slide */
+    .slide {
+        min-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .slide img {
+        width: 1000px;
+        display: block;
+        border-radius: 10px;
+    }
+
+</style>
+<body>
+
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <h1>Explore Societies in Pakistan</h1>
+            <p>Zameen provides you with a vibe of what every day looks like in different housing societies of Pakistan</p>
+            <div class="search-bar">
+                <select id="city" class="dropdown">
+                    <option value="">All Cities</option>
+                    <option value="lahore">Lahore</option>
+                    <option value="karachi">Karachi</option>
+                    <!-- Add more options here -->
+                </select>
+                <input type="text" id="society" placeholder="Search Societies">
+                <button class="search-button">Search</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Societies Cards Section -->
+    <section class="societies slider-container" id="society-list">
+        <div class="container slider">
+            <div class="society-card slide" data-city="lahore">
+                <img src="image_01_034427838e.jpg" alt="Bahria Town">
+                <div class="card-content">
+                    <h3>Bahria Town</h3>
+                    <p>Lahore</p>
+                    <a href="#">Explore</a>
+                </div>
+            </div>
+            <div class="society-card slide" data-city="lahore">
+                <img src="8dc87184757602aec3d1982c19be7410_004cdbbd9b.jpg" alt="Gulberg">
+                <div class="card-content">
+                    <h3>Gulberg</h3>
+                    <p>Lahore</p>
+                    <a href="#">Explore</a>
+                </div>
+            </div>
+            
+            <div class="society-card slide" data-city="lahore">
+                <img src="development_smartcity_hrl_2533_d8b708e315.jpeg" alt="Park view-city">
+                <div class="card-content">
+                    <h3>Park View-city</h3>
+                    <p>Lahore</p>
+                    <a href="#">Explore</a>
+                </div>
+            </div>
+            <div class="society-card slide" data-city="lahore">
+                <img src="medium_40504687_800x600_04ed8a0742_3c5e7a50b6.jpeg" alt="Dha 7">
+                <div class="card-content">
+                    <h3>DHA 9 Town</h3>
+                    <p>Lahore</p>
+                    <a href="#">Explore</a>
+                </div>
+            </div>
+            <div class="society-card slide" data-city="lahore">
+                <img src="2020_11_19_fc0757c558.webp" alt="Bahria Town">
+                <div class="card-content">
+                    <h3>Bahria Town</h3>
+                    <p>Lahore</p>
+                    <a href="#">Explore</a>
+                </div>
+            </div>
+            <div class="society-card slide" data-city="lahore">
+                <img src="bahria_town_phase_5_1024x640_103052a294.jpg" alt="Johar Town">
+                <div class="card-content">
+                    <h3>Johar Town</h3>
+                    <p>Lahore</p>
+                    <a href="#">Explore</a>
+                </div>
+            </div>
+            <div class="society-card slide" data-city="karachi">
+                <img src="255021046-400x300 (1).jpeg" alt="Gulshan-e-Iqbal">
+                <div class="card-content">
+                    <h3>Gulshan-e-Iqbal</h3>
+                    <p>Karachi</p>
+                    <a href="#">Explore</a>
+                </div>
+            </div>
+            <div class="society-card slide" data-city="karachi">
+                <img src="Cover_b4b71635f7.jpg" alt="Gulshan-e-Iqbal">
+                <div class="card-content">
+                    <h3>Park Town</h3>
+                    <p>Karachi</p>
+                    <a href="#">Explore</a>
+                </div>
+            </div>
+            <div class="society-card slide" data-city="karachi">
+                <img src="IMG_7953_13df43dd89.jpg" alt="DHA Karachi">
+                <div class="card-content">
+                    <h3>DHA Karachi</h3>
+                    <p>Karachi</p>
+                    <a href="#">Explore</a>
+                </div>
+            </div>
+            <!-- Add more society cards here -->
+        </div>
+    </section>
+
+    <script>
+        // Search functionality
+        document.querySelector('.search-button').addEventListener('click', function() {
+            const selectedCity = document.getElementById('city').value.toLowerCase();
+            const searchTerm = document.getElementById('society').value.toLowerCase();
+            const societyCards = document.querySelectorAll('.society-card');
+            
+            societyCards.forEach(card => {
+                const cardCity = card.getAttribute('data-city').toLowerCase();
+                const cardTitle = card.querySelector('h3').innerText.toLowerCase();
+                
+                if ((selectedCity === '' || cardCity.includes(selectedCity)) && 
+                    (searchTerm === '' || cardTitle.includes(searchTerm))) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+
+        // Slider functionality
+        const slider = document.querySelector('.slider');
+        let currentIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        function showNextSlide() {
+            currentIndex++;
+            if (currentIndex >= totalSlides) {
+                currentIndex = 0;
+            }
+            slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+
+        setInterval(showNextSlide, 4000); // Change slide every 4 seconds
+    </script>
+
+</body>
+</html>

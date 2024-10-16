@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trending Properties</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- For graph rendering -->
+</head>
+<style>
+    /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.trending-properties {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 90%;
+    max-width: 1000px;
+}
+
+.tabs {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.tab-btn {
+    padding: 10px 20px;
+    background-color: #f1f6f9;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.tab-btn.active {
+    background-color: #00c07f;
+    color: #fff;
+}
+
+.property-list {
+    display: none;
+}
+
+.property-list.active {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.property-card {
+    flex: 1;
+    background-color: #f1f6f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.property-card:hover {
+    transform: translateY(-5px);
+}
+
+.property-card h3 {
+    margin: 10px 0;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.property-card p {
+    margin: 5px 0;
+    color: #666;
+}
+
+.price {
+    font-size: 1.5em;
+    color: #333;
+}
+
+.change {
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.change.up {
+    color: #00c07f;
+}
+
+.change.down {
+    color: #ff6b6b;
+}
+
+.arrow-up {
+    color: #00c07f;
+}
+
+.arrow-down {
+    color: #ff6b6b;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-btn:hover, .close-btn:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.trend-details {
+    margin-top: 20px;
+}
+
+</style>
+<body>
+    <div class="trending-properties">
+        <div class="tabs">
+            <button class="tab-btn active" onclick="showProperties(event, 'houses')">Houses</button>
+            <button class="tab-btn" onclick="showProperties(event, 'plots')">Plots</button>
+            <button class="tab-btn" onclick="showProperties(event, 'commercial')">Commercial Plots</button>
+        </div>
+
+        <div id="houses" class="property-list active">
+            <div class="property-card">
+                <h3>DHA Defence</h3>
+                <p>Lahore</p>
+                <p class="price">PKR 3.99 Crore</p>
+                <p class="change up" onclick="showTrendDetails('DHA Defence', 'Lahore', '+11%', '3.99 Crore', [3.5, 3.6, 3.7, 3.8, 3.9, 4.0])">+11% <span class="arrow-up">↑</span></p>
+            </div>
+            <div class="property-card">
+                <h3>Bahria Town</h3>
+                <p>Karachi</p>
+                <p class="price">PKR 2 Crore</p>
+                <p class="change down" onclick="showTrendDetails('Bahria Town', 'Karachi', '-7%', '2 Crore', [2.0, 2.1, 2.0, 1.9, 1.8, 1.7])">-7% <span class="arrow-down">↓</span></p>
+            </div>
+        </div>
+
+        <div id="plots" class="property-list">
+            <div class="property-card">
+                <h3>Bahria Town</h3>
+                <p>Karachi</p>
+                <p class="price">PKR 2 Crore</p>
+                <p class="change down" onclick="showTrendDetails('Bahria Town', 'Karachi', '-7%', '2 Crore', [2.0, 2.1, 2.0, 1.9, 1.8, 1.7])">-7% <span class="arrow-down">↓</span></p>
+            </div>
+            <div class="property-card">
+                <h3>DHA Defence</h3>
+                <p>Islamabad</p>
+                <p class="price">PKR 9.92 Crore</p>
+                <p class="change up" onclick="showTrendDetails('DHA Defence', 'Islamabad', '+29%', '9.92 Crore', [9.5, 9.6, 9.8, 10.0, 10.2, 10.5])">+29% <span class="arrow-up">↑</span></p>
+            </div>
+        </div>
+
+        <div id="commercial" class="property-list">
+            <div class="property-card">
+                <h3>DHA Defence</h3>
+                <p>Islamabad</p>
+                <p class="price">PKR 9.92 Crore</p>
+                <p class="change up" onclick="showTrendDetails('DHA Defence', 'Islamabad', '+29%', '9.92 Crore', [9.5, 9.6, 9.8, 10.0, 10.2, 10.5])">+29% <span class="arrow-up">↑</span></p>
+            </div>
+            <div class="property-card">
+                <h3>Bahria Town</h3>
+                <p>Rawalpindi</p>
+                <p class="price">PKR 5.79 Crore</p>
+                <p class="change up" onclick="showTrendDetails('Bahria Town', 'Rawalpindi', '+20%', '5.79 Crore', [5.5, 5.6, 5.7, 5.8, 5.9, 6.0])">+20% <span class="arrow-up">↑</span></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Graph -->
+    <div id="trendModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h3 id="modal-property-name"></h3>
+            <p id="modal-property-location"></p>
+            <div class="trend-details">
+                <p>Price: <span id="modal-property-price"></span></p>
+                <p>Change: <span id="modal-property-change"></span></p>
+                <!-- Chart.js Canvas -->
+                <canvas id="trendChart" style="width:100%; height:400px;"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showProperties(event, type) {
+            // Hide all property lists
+            document.querySelectorAll('.property-list').forEach(list => list.classList.remove('active'));
+
+            // Remove active class from all buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+
+            // Show the selected property list and make the corresponding button active
+            document.getElementById(type).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        let trendChart; // Declare trendChart globally
+
+        function showTrendDetails(name, location, change, price, trendData) {
+            // Set modal content
+            document.getElementById('modal-property-name').innerText = name;
+            document.getElementById('modal-property-location').innerText = location;
+            document.getElementById('modal-property-change').innerText = change;
+            document.getElementById('modal-property-price').innerText = price;
+
+            // Show modal
+            document.getElementById('trendModal').style.display = 'block';
+
+            // Destroy previous chart instance if exists
+            if (trendChart) {
+                trendChart.destroy();
+            }
+
+            // Initialize graph with actual data
+            const ctx = document.getElementById('trendChart').getContext('2d');
+            trendChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'], // Example data
+                    datasets: [{
+                        label: `${name} Price Trend`,
+                        data: trendData, // Use the trendData argument
+                        borderColor: 'rgba(0, 192, 127, 0.8)',
+                        backgroundColor: 'rgba(0, 192, 127, 0.2)',
+                        borderWidth: 2,
+                        pointRadius: 5,
+                        pointBackgroundColor: 'rgba(0, 192, 127, 1)',
+                        tension: 0.4 // For smooth lines
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.dataset.label}: PKR ${context.raw} Crore`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Month'
+                            }
+                        },
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Price (in Crore)'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Close modal functionality
+        document.querySelector('.close-btn').addEventListener('click', () => {
+            document.getElementById('trendModal').style.display = 'none';
+        });
+    </script>
+</body>
+</html>

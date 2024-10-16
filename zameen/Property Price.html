@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Price Trends</title>
+    <style>
+        /* Basic styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background: linear-gradient(to right, #e5f9e0, #d2e7f8);
+        }
+
+        .property-price-trends {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .trends-header {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .trends-header h1 {
+            font-size: 2rem;
+            color: #333;
+        }
+
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 20px 0;
+        }
+
+        .filters select,
+        .filters input,
+        .filters button {
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .filters button {
+            background-color: #28a745;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .filters button:hover {
+            background-color: #218838;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .trend-items, .price-cards {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .trend-item, .price-card {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 15px;
+            width: calc(33.33% - 20px);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .trend-item h3, .price-card h3 {
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .trend-item p, .price-card p {
+            font-size: 1rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="property-price-trends">
+        <header class="trends-header">
+            <h1>Property Price Trends and Index</h1>
+            <p>Explore the latest price trends across various cities and localities.</p>
+        </header>
+
+        <div class="filters">
+            <select name="city">
+                <option value="">City</option>
+                <option value="lahore">Lahore</option>
+                <option value="karachi">Karachi</option>
+            </select>
+            <select name="location">
+                <option value="">Locations</option>
+            </select>
+            <select name="property-type">
+                <option value="">Property Type</option>
+                <option value="house">House</option>
+                <option value="plot">Plot</option>
+            </select>
+            <input type="text" name="area-size" placeholder="Area Size">
+            <button>View</button>
+        </div>
+
+        <section class="recently-viewed hidden">
+            <h2>Recently Viewed Price Trends</h2>
+            <div class="trend-items">
+                <!-- Individual trend cards will be injected here -->
+            </div>
+        </section>
+
+        <section class="average-prices hidden">
+            <h2>Average Property Prices</h2>
+            <div class="price-cards">
+                <!-- Individual price cards will be injected here -->
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Sample data
+        const recentlyViewed = [
+            { name: '5 Marla House for Sale', location: 'DHA Phase 2, Lahore', city: 'lahore', propertyType: 'house', price: 'PKR 1.5 Crore' },
+            { name: '3 Marla House for Sale', location: 'Rehman Garden Phase 2, Lahore', city: 'lahore', propertyType: 'house', price: 'PKR 75 Lakh' },
+            { name: '10 Marla Plot for Sale', location: 'DHA, Karachi', city: 'karachi', propertyType: 'plot', price: 'PKR 2.5 Crore' }
+        ];
+
+        const averagePrices = [
+            { name: 'DHA Defence, Lahore', city: 'lahore', propertyType: 'house', price: 'PKR 3.99 Crore', change: '↑ 11%' },
+            { name: 'Bahria Town, Lahore', city: 'lahore', propertyType: 'house', price: 'PKR 3.79 Crore', change: '↑ 13%' },
+            { name: 'Gulshan-e-Iqbal, Karachi', city: 'karachi', propertyType: 'plot', price: 'PKR 2.99 Crore', change: '↑ 9%' }
+        ];
+
+        // Function to filter and render properties
+        function filterProperties() {
+            const city = document.querySelector('.filters select[name="city"]').value;
+            const location = document.querySelector('.filters select[name="location"]').value;
+            const propertyType = document.querySelector('.filters select[name="property-type"]').value;
+            const areaSize = document.querySelector('.filters input[name="area-size"]').value;
+
+            const filteredRecentlyViewed = recentlyViewed.filter(item => {
+                return (!city || item.city === city) &&
+                       (!location || item.location.toLowerCase().includes(location.toLowerCase())) &&
+                       (!propertyType || item.propertyType === propertyType) &&
+                       (!areaSize || item.name.toLowerCase().includes(areaSize.toLowerCase()));
+            });
+
+            const filteredAveragePrices = averagePrices.filter(item => {
+                return (!city || item.city === city) &&
+                       (!propertyType || item.propertyType === propertyType);
+            });
+
+            renderPropertyCards(document.querySelector('.trend-items'), filteredRecentlyViewed);
+            renderPropertyCards(document.querySelector('.price-cards'), filteredAveragePrices);
+
+            // Show the sections after rendering
+            document.querySelector('.recently-viewed').classList.remove('hidden');
+            document.querySelector('.average-prices').classList.remove('hidden');
+        }
+
+        // Function to render cards
+        function renderPropertyCards(container, properties) {
+            container.innerHTML = '';
+            properties.forEach(property => {
+                const card = document.createElement('div');
+                card.className = 'trend-item';
+                card.innerHTML = `
+                    <h3>${property.name}</h3>
+                    <p>${property.location || ''}</p>
+                    <p>${property.price}</p>
+                    ${property.change ? `<p>${property.change}</p>` : ''}
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // Populate locations based on city selection
+        const locations = {
+            lahore: ['DHA', 'Bahria Town', 'Model Town'],
+            karachi: ['Clifton', 'DHA', 'Gulshan-e-Iqbal']
+        };
+
+        document.querySelector('select[name="city"]').addEventListener('change', function() {
+            const city = this.value;
+            const locationSelect = document.querySelector('select[name="location"]');
+            locationSelect.innerHTML = '<option value="">Locations</option>';
+
+            if (city && locations[city]) {
+                locations[city].forEach(location => {
+                    const option = document.createElement('option');
+                    option.value = location.toLowerCase().replace(/ /g, '-');
+                    option.textContent = location;
+                    locationSelect.appendChild(option);
+                });
+            }
+        });
+
+        // Attach event listener to the view button
+        document.querySelector('.filters button').addEventListener('click', filterProperties);
+    </script>
+</body>
+</html>

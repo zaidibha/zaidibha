@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Area Unit Converter</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+      <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">-
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+        }
+
+        #nav {
+    background-color: #28a745;
+    padding: 10px 0;
+    color: #fff;
+    height: 45px;
+    font-size: 15px;
+    font-weight: 600;
+    color: white;
+    margin: 0px;
+}
+
+
+header .logo img {
+    height: 37px;
+    margin-left: 36px;
+    width: 150px;
+    margin-top: -7px;
+
+}
+.imgs{
+    padding-top: 7px;
+    background-color: rgb(248, 248, 248);
+    color: #555;
+    cursor: pointer;
+    margin-top: -45px;
+    font-size: 16px;
+    gap: 30px;
+    height: 41px;
+}
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+
+
+
+
+
+        .converter-header {
+            background: linear-gradient(to right, #e5f9e0, #d2e7f8);
+            padding: 60px 0;
+            text-align: center;
+            color: #333;
+            margin-top: -142px;
+        }
+        .converter-header h2 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .converter-header p {
+            font-size: 1.1em;
+        }
+        .converter-container {
+            max-width: 600px;
+            margin: -50px auto 50px;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .btn-group .btn {
+            width: 150px;
+        }
+        .unit-button {
+            margin-right: 10px;
+            margin-bottom: 10px;
+            border-radius: 50px;
+        }
+        .converter-section h5 {
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        .converter-section {
+            margin-bottom: 30px;
+        }
+        .converter-section .row > div {
+            padding-right: 10px;
+            padding-left: 10px;
+        }
+        .useful-converter-section .btn-group {
+            flex-wrap: wrap;
+        }
+        .useful-converter-section .unit-button {
+            margin-bottom: 10px;
+            border-radius: 50px;
+            padding: 5px 20px;
+        }
+
+        .conversion-table {
+            margin: 50px auto;
+            width: 80%;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .conversion-table h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            text-align: left;
+            border-collapse: collapse;
+        }
+        table th, table td {
+            padding: 12px;
+            border-bottom: 1px solid #ccc;
+        }
+        table th {
+            background-color: #f0f0f0;
+        }
+        table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .about-converter, .useful-links {
+            margin: 20px auto;
+            width: 80%;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .useful-links a {
+            color: #00a651;
+            text-decoration: none;
+            display: block;
+        }
+        .useful-links a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+    <nav id="nav" class="navbar navbar-expand-sm bg-success navbar-light">
+        <div id="nav" class= "container-fluid">
+         &emsp; <a class="navbar-brand" href="#"><li><i style="color: white;" class="fas fa-home"></i><a href="#"></a></li></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div  class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a style="color: white;" class="nav-link" href="#">PROPERTIES</a>
+              </li>
+              <li class="nav-item">
+                <a style="color: white;" class="nav-link" href="#">PLOTFINDER</a>
+              </li>
+              <li class="nav-item">
+                <a style="color: white;" class="nav-link" href="#">AREAGUIDES</a>
+              </li> 
+              <li class="nav-item">
+                <a style="color: white;" class="nav-link" href="#">BLOGS</a>
+              </li>
+              <li class="nav-item">
+                <a style="color: white;" class="nav-link" href="#">MAPS</a>
+              </li> 
+              <li class="nav-item dropdown">
+                <a style="color: white;" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">TOOLS</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="Loan.html">Home Loan Calculator</a></li>
+                  <li><a class="dropdown-item" href="Area unit .html">Area Unit Converter</a></li>
+                  <li><a class="dropdown-item" href="#">Land Record Page</a></li>
+                  <li><a class="dropdown-item" href="cost calculater.html">Constructaion Cost</a></li>
+                  </ul>
+                </li>
+             
+            <li class="nav-item dropdown">
+                <a style="color: white;" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">MORE</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Forum</a></li>
+                  <li><a class="dropdown-item" href="#">Index</a></li>
+                  <li><a class="dropdown-item" href="#">Trends</a></li>
+                </ul>
+                </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    <header>
+        <div class="container">
+            
+            <nav>
+                <ul>
+                    
+                    <i style="position: relative;left: 1255px;top: -35px;font-size: 22px;color: white;" class="fa-solid fa-gear"></i>
+                    <i style="position: relative;left: 1265px;top: -35px;font-size: 22px;color: white;" class="fa-regular fa-user"></i>
+                    <i style="position: relative; color: black;font-size: 9px; left: 758px;top: -28px;" class="fas fa-search"></i> <input style="position: relative;left: 730px; top: -35px; font-size: 12px; padding: 5px; width: 120px; height: 25px; color: white; border-radius: 5px; border: 1px solid white; outline: none; background-color: #28a745;border: 1px solid white;" type="text" placeholder="Property ID"></ul>
+                    <button  style=" position: relative;left: 987px; top: -123px; width: 120px; height: 26px; background-color: white;border-radius: 5px;border: none;font-size: 12px;"><i style="font-size: 17px;" class="fa-sharp fa-light fa-plus"></i> Add properties</button>
+                   <img style="position: relative; width: 27px; left: 1070px;top: -122px;" src="C:\Users\za263\Desktop\Task\zameen\flage.png" alt="">
+                   <img style="position: relative; width: 28px; left: 990px;top: -125px;" src="C:\Users\za263\Desktop\Task\zameen\iconLangUR_noinline.b1c8d0143beb32e86c2abb0007029fd3 (1).svg" alt="">
+                </ul>
+            </nav>
+            </div>
+            <nav>
+                <div class="logo">
+                   <div style="position: relative;top: -129px;" class="imgs">
+                    <ul>
+                        <a href="#"><img   src="C:\Users\za263\Desktop\Task\zameen\logo.png" alt="Logo"></a>
+                       <br>&emsp;&emsp;&emsp;&emsp; <li>BUY ></li>
+                        <li>HOME</li>
+                        <li>PLOTS</li>
+                        <li>COMMERCIAL   &emsp; |</li>
+                        <li>RENT &emsp; |</li>
+                        <li>AGENTS &emsp; |</li>
+                        <li>NEWPROJECTS</li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+
+
+    <header class="converter-header">
+        <h2>Area Unit Converter</h2>
+        <p>Easy and convenient way to convert and compare various units of measurements of area sizes</p>
+    </header>
+
+    <div class="container converter-container">
+        <!-- Marla Size Section -->
+        <div class="converter-section" id="marla-size-section">
+            <h5>Marla Size</h5>
+            <div class="btn-group" role="group" aria-label="Marla Sizes">
+                <button type="button" class="btn btn-outline-success unit-button active" data-size="225">225 / Sq. ft.</button>
+                <button type="button" class="btn btn-outline-success unit-button" data-size="250">250 / Sq. ft.</button>
+                <button type="button" class="btn btn-outline-success unit-button" data-size="272">272 / Sq. ft.</button>
+            </div>
+        </div>
+
+        <!-- Input Section -->
+        <div class="converter-section row" id="input-section">
+            <div class="col">
+                <input type="number" class="form-control" placeholder="1" id="input-quantity">
+            </div>
+            <div class="col">
+                <select class="form-select" id="input-unit">
+                    <option value="Marla" data-multiplier="1" selected>Marla</option>
+                    <option value="Square Feet" data-multiplier="225">Square Feet</option>
+                    <option value="Square Yards" data-multiplier="25">Square Yards</option>
+                    <option value="Square Meters" data-multiplier="20.9">Square Meters</option>
+                    <option value="Kanal" data-multiplier="20">Kanal</option>
+                    <!-- Add more units as needed -->
+                </select>
+            </div>
+            <div class="col">
+                <input type="number" class="form-control" placeholder="225" id="output-quantity">
+            </div>
+            <div class="col">
+                <select class="form-select" id="output-unit">
+                    <option value="Square Feet" data-multiplier="225" selected>Square Feet</option>
+                    <option value="Marla" data-multiplier="1">Marla</option>
+                    <option value="Square Yards" data-multiplier="25">Square Yards</option>
+                    <option value="Square Meters" data-multiplier="20.9">Square Meters</option>
+                    <option value="Kanal" data-multiplier="20">Kanal</option>
+                    <!-- Add more units as needed -->
+                </select>
+            </div>
+        </div>
+
+        <!-- Useful Converter Section -->
+        <div class="converter-section useful-converter-section" id="useful-converter-section">
+            <h5>Useful Converter</h5>
+            <div class="btn-group" role="group" aria-label="Useful Converters">
+                <button type="button" class="btn btn-outline-success unit-button" data-input-unit="Marla" data-output-unit="Square Yards">Marla → Sq. yd.</button>
+                <button type="button" class="btn btn-outline-success unit-button" data-input-unit="Square Meters" data-output-unit="Square Yards">Sq. m. → Sq. yd.</button>
+                <button type="button" class="btn btn-outline-success unit-button" data-input-unit="Kanal" data-output-unit="Marla">Kanal → Marla</button>
+                <button type="button" class="btn btn-outline-success unit-button" data-input-unit="Square Feet" data-output-unit="Square Meters">Sq. ft. → Sq. m.</button>
+                <!-- Add more buttons here -->
+            </div>
+        </div>
+    </div>
+
+
+    <div class="conversion-table">
+        <h2>Area Unit Conversion in Pakistan</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Marla</th>
+                    <th>Kanal</th>
+                    <th>Square Feet (Sq. ft.)</th>
+                    <th>Square Meter (Sq. m.)</th>
+                    <th>Square Yard (Sq. yd. / Gaz)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1 Marla</td>
+                    <td>0.05 Kanal</td>
+                    <td>225 Sq. ft.</td>
+                    <td>21 Sq. m.</td>
+                    <td>25 Sq. yd.</td>
+                </tr>
+                <tr>
+                    <td>2 Marla</td>
+                    <td>0.1 Kanal</td>
+                    <td>450 Sq. ft.</td>
+                    <td>42 Sq. m.</td>
+                    <td>50 Sq. yd.</td>
+                </tr>
+                <tr>
+                    <td>3 Marla</td>
+                    <td>0.15 Kanal</td>
+                    <td>675 Sq. ft.</td>
+                    <td>63 Sq. m.</td>
+                    <td>75 Sq. yd.</td>
+                </tr>
+                <tr>
+                    <td>4 Marla</td>
+                    <td>0.2 Kanal</td>
+                    <td>900 Sq. ft.</td>
+                    <td>84 Sq. m.</td>
+                    <td>100 Sq. yd.</td>
+                </tr>
+                <tr>
+                    <td>5 Marla</td>
+                    <td>0.25 Kanal</td>
+                    <td>1125 Sq. ft.</td>
+                    <td>105 Sq. m.</td>
+                    <td>125 Sq. yd.</td>
+                </tr>
+                <tr>
+                    <td>6 Marla</td>
+                    <td>0.3 Kanal</td>
+                    <td>1350 Sq. ft.</td>
+                    <td>126 Sq. m.</td>
+                    <td>150 Sq. yd.</td>
+                </tr>
+                <tr>
+                    <td>7 Marla</td>
+                    <td>0.35 Kanal</td>
+                    <td>1575 Sq. ft.</td>
+                    <td>147 Sq. m.</td>
+                    <td>175 Sq. yd.</td>
+                </tr>
+                <tr>
+                    <td>8 Marla</td>
+                    <td>0.4 Kanal</td>
+                    <td>1800 Sq. ft.</td>
+                    <td>168 Sq. m.</td>
+                    <td>200 Sq. yd.</td>
+                </tr>
+                <tr>
+                    <td>9 Marla</td>
+                    <td>0.45 Kanal</td>
+                    <td>2025 Sq. ft.</td>
+                    <td>189 Sq. m.</td>
+                    <td>225 Sq. yd.</td>
+                </tr>
+                <tr>
+                    <td>10 Marla</td>
+                    <td>0.5 Kanal</td>
+                    <td>2250 Sq. ft.</td>
+                    <td>210 Sq. m.</td>
+                    <td>250 Sq. yd.</td>
+                </tr>
+                <tr>
+                    <td>12 Marla</td>
+                    <td>0.6 Kanal</td>
+                    <td>2700 Sq. ft.</td>
+                    <td>252 Sq. m.</td>
+                    <td>300 Sq. yd.</td>
+                </tr>
+                <tr>
+                    <td>13 Marla</td>
+                    <td>0.65 Kanal</td>
+                    <td>2925 Sq. ft.</td>
+                    <td>273 Sq. m.</td>
+                    <td>325 Sq. yd.</td>
+                </tr>
+                <tr>
+                    <td>14 Marla</td>
+                    <td>0.7 Kanal</td>
+                    <td>3150 Sq. ft.</td>
+                    <td>294 Sq. m.</td>
+                    <td>350 Sq. yd.</td>
+                </tr>
+                <tr>
+                    <td>15 Marla</td>
+                    <td>0.75 Kanal</td>
+                    <td>3375 Sq. ft.</td>
+                    <td>315 Sq. m.</td>
+                    <td>375 Sq. yd.</td>
+                </tr>
+                <tr>
+                    <td>16 Marla</td>
+                    <td>0.8 Kanal</td>
+                    <td>3600 Sq. ft.</td>
+                    <td>336 Sq. m.</td>
+                    <td>400 Sq. yd.</td>
+                </tr>
+                <tr>
+                    <td>17 Marla</td>
+                    <td>0.85 Kanal</td>
+                    <td>3825 Sq. ft.</td>
+                    <td>357 Sq. m.</td>
+                    <td>425 Sq. yd.</td>
+                </tr>
+                <tr>
+                    <td>18 Marla</td>
+                    <td>0.9 Kanal</td>
+                    <td>4050 Sq. ft.</td>
+                    <td>378 Sq. m.</td>
+                    <td>450 Sq. yd.</td>
+                </tr>
+                <tr>
+                    <td>19 Marla</td>
+                    <td>0.95 Kanal</td>
+                    <td>4275 Sq. ft.</td>
+                    <td>399 Sq. m.</td>
+                    <td>475 Sq. yd.</td>
+                </tr>
+                <tr>
+                    <td>20 Marla</td>
+                    <td>1 Kanal</td>
+                    <td>4500 Sq. ft.</td>
+                    <td>420 Sq. m.</td>
+                    <td>500 Sq. yd.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="about-converter">
+        <h3>About Area Converter</h3>
+        <p>
+            Not sure of what to do when facing unfamiliar area units? Introducing Zameen Area Unit Converter — now easily convert any unit of area measurement for better understanding. What is a unit of measurement? A unit is a measurement of a quantity, defined or adopted by tradition (and/or law). Human history has witnessed various forms of unit systems used in different regions and cultures. To eradicate this issue and help uniform the global system of measurement units, an international worldwide standard of measurement units was developed — also known as the International System of Units (SI).
+        </p>
+        <p>
+            This modern form of the metric system, intended as a single set of rules and unit conversions for global use, has been fully adopted. What are the internationally recognized area units? The basic unit used to calculate land area measurements, elected by convention, and regarded as dimensionally independent, is the meter (m). However, in Pakistan, the most used unit to establish an area’s landmass is marla.
+        </p>
+    </div>
+
+    <div class="useful-links">
+        <h4>Useful Links</h4>
+        <div class="row">
+            <div class="col-md-4">
+                <h5>Houses for Sale</h5>
+                <a href="#">Houses for Sale in Lahore</a>
+                <a href="#">Houses for Sale in Karachi</a>
+                <a href="#">Houses for Sale in Islamabad</a>
+                <a href="#">Houses for Sale in Rawalpindi</a>
+                <!-- Add more links here -->
+            </div>
+            <div class="col-md-4">
+                <h5>Plots for Sale</h5>
+                <a href="#">Plots for Sale in Lahore</a>
+                <a href="#">Plots for Sale in Karachi</a>
+                <a href="#">Plots for Sale in Islamabad</a>
+                <a href="#">Plots for Sale in Rawalpindi</a>
+                <!-- Add more links here -->
+            </div>
+            <div class="col-md-4">
+                <h5>Flats for Sale</h5>
+                <a href="#">Flats for Sale in Lahore</a>
+                <a href="#">Flats for Sale in Karachi</a>
+                <a href="#">Flats for Sale in Islamabad</a>
+                <a href="#">Flats for Sale in Rawalpindi</a>
+                <!-- Add more links here -->
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+       document.addEventListener('DOMContentLoaded', function() {
+    const unitButtons = document.querySelectorAll('.unit-button');
+    const inputUnitSelect = document.getElementById('input-unit');
+    const outputUnitSelect = document.getElementById('output-unit');
+    const inputQuantity = document.getElementById('input-quantity');
+    const outputQuantity = document.getElementById('output-quantity');
+
+    // Function to update the active button style
+    const updateActiveButton = (activeButton) => {
+        unitButtons.forEach(button => {
+            button.classList.remove('active');
+        });
+        activeButton.classList.add('active');
+    };
+
+    // Function to update the output value
+    const updateOutput = () => {
+        const inputMultiplier = parseFloat(inputUnitSelect.selectedOptions[0].getAttribute('data-multiplier'));
+        const outputMultiplier = parseFloat(outputUnitSelect.selectedOptions[0].getAttribute('data-multiplier'));
+
+        const inputValue = parseFloat(inputQuantity.value) || 0;
+        const outputValue = (inputValue * inputMultiplier) / outputMultiplier;
+
+        outputQuantity.value = outputValue.toFixed(2);
+    };
+
+    // Event listeners for the Marla size buttons
+    unitButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            updateActiveButton(this);
+
+            if (this.hasAttribute('data-size')) {
+                // If Marla size button is clicked, set output directly
+                const selectedValue = parseFloat(this.getAttribute('data-size'));
+                inputQuantity.value = 1; // Set input quantity to 1
+                outputQuantity.value = selectedValue; // Set output quantity to the selected value
+            } else if (this.hasAttribute('data-input-unit') && this.hasAttribute('data-output-unit')) {
+                // If useful converter button is clicked, update input and output units
+                const inputUnit = this.getAttribute('data-input-unit');
+                const outputUnit = this.getAttribute('data-output-unit');
+
+                // Set the input and output units based on button data attributes
+                inputUnitSelect.value = inputUnit;
+                outputUnitSelect.value = outputUnit;
+
+                // Automatically set the input quantity to 1
+                inputQuantity.value = 1;
+
+                // Update the output based on the selected conversion
+                updateOutput();
+            }
+        });
+    });
+
+    // Attach event listeners to update output when input changes
+    inputQuantity.addEventListener('input', updateOutput);
+    inputUnitSelect.addEventListener('change', updateOutput);
+    outputUnitSelect.addEventListener('change', updateOutput);
+});
+
+    </script>
+</body>
+</html>
